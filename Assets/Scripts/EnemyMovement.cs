@@ -57,7 +57,7 @@ public class EnemyMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
+       
         if (collision.gameObject.tag == "Bowl")
         {
             isActive = false;
@@ -65,8 +65,6 @@ public class EnemyMovement : MonoBehaviour
             _rb.velocity = new Vector3(0,0,0);
             _agent.SetDestination(transform.position);
             _agent.isStopped = true;
-            
-
         }
     }
 }

@@ -10,6 +10,12 @@ public class GunScript : MonoBehaviour
 
     [SerializeField] private Button _button;
 
+    [SerializeField] private Transform _laserpoint;
+
+    [SerializeField] private float _laserduration;
+
+    private LineRenderer _laserLine;
+
     private Rigidbody rb;
     private Animator _animator;
     [SerializeField]private float delay = 3;
@@ -18,22 +24,23 @@ public class GunScript : MonoBehaviour
     // Update is called once per frame
     private void Awake(){
         _button.onClick.AddListener(Shoot);
+        _laserLine = GetComponent<LineRenderer>();
     }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
-        //StartCoroutine("StartShooting");
+        StartCoroutine(StartShooting());
     }
 
     void FixedUpdate()
     {
-        timer += Time.deltaTime;
-        if (timer > delay)
-        {
-            Shoot();
-            timer -= delay;
-        }
+        // timer += Time.deltaTime;
+        // if (timer > delay)
+        // {
+        //     Shoot();
+        //     timer -= delay;
+        // }
     }
 
     IEnumerator StartShooting()
@@ -52,13 +59,23 @@ public class GunScript : MonoBehaviour
         _animator.SetTrigger("isShot");*/
         /*GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");*/
         //rb.transform.LookAt(enemies[0].transform);
-        if ((Physics.Raycast(rb.transform.position, rb.transform.forward, out hit, range)) && hit.collider.gameObject.CompareTag("Enemy")) ;
+        if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && hit.collider.gameObject.CompareTag("Enemy")) ;
         {
+            _laserLine.SetPosition(0, _laserpoint.position);
             Debug.DrawRay(rb.transform.position, rb.transform.forward*hit.distance ,Color.red);
+            _laserLine.SetPosition(1,hit.point);
             Debug.Log(hit.transform.name);
             Debug.Log("Shot");
             _animator.SetTrigger("isShot");
+            StartCoroutine(ShootLaser());
         }
         //return true;
+    }
+
+    IEnumerator ShootLaser()
+    {
+        _laserLine.enabled = true;
+        yield  return new WaitForSeconds(_laserduration);
+        _laserLine.enabled = false;
     }
 }
