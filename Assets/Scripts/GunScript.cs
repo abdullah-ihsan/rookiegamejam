@@ -62,7 +62,7 @@ public class GunScript : MonoBehaviour
         /*GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");*/
         //rb.transform.LookAt(enemies[0].transform);
         Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range);
-            hit.collider.gameObject.CompareTag("Enemy");
+//            hit.collider.gameObject.CompareTag("Enemy");
         Debug.Log(hit.transform.name + "testing");
         if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && hit.collider.gameObject.CompareTag("Enemy"))
         {
