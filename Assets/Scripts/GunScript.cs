@@ -61,7 +61,10 @@ public class GunScript : MonoBehaviour
         _animator.SetTrigger("isShot");*/
         /*GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");*/
         //rb.transform.LookAt(enemies[0].transform);
-        if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && hit.collider.gameObject.CompareTag("Enemy")) ;
+        Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range);
+            hit.collider.gameObject.CompareTag("Enemy");
+        Debug.Log(hit.transform.name + "testing");
+        if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && hit.collider.gameObject.CompareTag("Enemy"))
         {
             _laserLine.SetPosition(0, _laserpoint.position);
             Debug.DrawRay(rb.transform.position, rb.transform.forward*hit.distance ,Color.red);
