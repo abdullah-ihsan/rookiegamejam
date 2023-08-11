@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GunScript : MonoBehaviour
 {
+    //[SerializeField] private EnemyMovement _enemy;
+    public bool bulletHit = false;
     [SerializeField] private float damage = 10f;
     [SerializeField] private float range = 100f;
 
@@ -47,7 +49,7 @@ public class GunScript : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
             Shoot();
         }
     }
@@ -64,8 +66,13 @@ public class GunScript : MonoBehaviour
             _laserLine.SetPosition(0, _laserpoint.position);
             Debug.DrawRay(rb.transform.position, rb.transform.forward*hit.distance ,Color.red);
             _laserLine.SetPosition(1,hit.point);
-            Debug.Log(hit.transform.name);
-            Debug.Log("Shot");
+            Debug.Log(hit.transform.name + " shot");
+            
+            //lower the health of enemy
+            /*if (hit.transform.name == "Potato")
+                _enemy.gotShot();*/
+
+
             _animator.SetTrigger("isShot");
             StartCoroutine(ShootLaser());
         }

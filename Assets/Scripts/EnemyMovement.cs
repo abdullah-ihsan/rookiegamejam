@@ -5,7 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] private GunScript _fire;
     [SerializeField] private float movementSpeed;
+
+    [SerializeField] private float _maxhealth = 10;
+    private float _currenthealth;
 
     private Rigidbody _rb;
 
@@ -21,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Animator _animator;
     private int isPushingHash;
+    [SerializeField] private EnemyHealth _enemyhealth;
 
     private void Awake()
     {
@@ -33,6 +38,8 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         _agent.speed = movementSpeed;
+        _currenthealth = _maxhealth;
+        _enemyhealth.UpdateHealthbar(_maxhealth, _currenthealth);
     }
 
     // Update is called once per frame
@@ -66,5 +73,17 @@ public class EnemyMovement : MonoBehaviour
             _agent.SetDestination(transform.position);
             _agent.isStopped = true;
         }
+
+        // if (collision.gameObject.tag == "Laser")
+        // {
+        //     Debug.Log("-2.5");
+        //     
+        // }
+    }
+
+    public void gotShot()
+    {
+        _currenthealth -= 2.5f;
+        _enemyhealth.UpdateHealthbar(_maxhealth, _currenthealth);
     }
 }

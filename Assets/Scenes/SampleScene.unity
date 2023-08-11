@@ -1833,13 +1833,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22191864, y: -0, z: -0, w: 0.97506523}
-  m_LocalPosition: {x: -1.34, y: 34.95, z: -115.52}
+  m_LocalRotation: {x: 0.3454721, y: -0, z: -0, w: 0.93842906}
+  m_LocalPosition: {x: -1.34, y: 43.09, z: -108.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 25.643, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 40.421, y: 0, z: 0}
 --- !u!65 &963194230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3426,7 +3426,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.87, y: 1.9, z: 1.275}
+  m_Extents: {x: 0.745, y: 1.9, z: 0.57}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1

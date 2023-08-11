@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4838067341564878}
   - component: {fileID: 33092966369005018}
   - component: {fileID: 23445742227598232}
+  - component: {fileID: 6358271007140408725}
   m_Layer: 0
   m_Name: LowPoly - Rock A
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6358271007140408725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927372005322154}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0574602, y: 0.97157097, z: 0.50731593}
+  m_Center: {x: 0, y: 0, z: 0.17922409}
