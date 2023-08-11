@@ -43,6 +43,7 @@ public class GunScript : MonoBehaviour
         //     Shoot();
         //     timer -= delay;
         // }
+        SetLaser();
     }
 
     IEnumerator StartShooting()
@@ -56,19 +57,13 @@ public class GunScript : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
-        //Debug.Log("Tried Shooting");
-        /*Debug.Log("Shot");
-        _animator.SetTrigger("isShot");*/
-        /*GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");*/
-        //rb.transform.LookAt(enemies[0].transform);
-        Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range);
-//            hit.collider.gameObject.CompareTag("Enemy");
-        Debug.Log(hit.transform.name + "testing");
+        //Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range);
+        //Debug.Log(hit.transform.name + "testing");
         if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && hit.collider.gameObject.CompareTag("Enemy"))
         {
-            _laserLine.SetPosition(0, _laserpoint.position);
+           
             Debug.DrawRay(rb.transform.position, rb.transform.forward*hit.distance ,Color.red);
-            _laserLine.SetPosition(1,hit.point);
+            
             Debug.Log(hit.transform.name + " shot");
             
             //lower the health of enemy
@@ -77,9 +72,19 @@ public class GunScript : MonoBehaviour
 
 
             _animator.SetTrigger("isShot");
-            StartCoroutine(ShootLaser());
+           
         }
-        //return true;
+        StartCoroutine(ShootLaser());
+    }
+
+    void SetLaser()
+    {
+        RaycastHit hit;
+        Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range);
+        _laserLine.SetPosition(0, _laserpoint.position);
+        _laserLine.SetPosition(1,hit.point);
+        _laserLine.enabled = true;
+        //StartCoroutine(ShootLaser());
     }
 
     IEnumerator ShootLaser()
