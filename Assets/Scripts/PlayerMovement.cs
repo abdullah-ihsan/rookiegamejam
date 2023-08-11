@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody),typeof(MeshCollider))]
+[RequireComponent(typeof(Rigidbody),typeof(BoxCollider))]
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody _rb;
@@ -25,14 +25,14 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
 
-    void Update()
-    {
+    // void Update()
+    /*{
         if (transform.rotation.x != 0)
         {
             transform.localEulerAngles = new Vector3(0, transform.rotation.y, transform.rotation.z);
             transform.localPosition = new Vector3(transform.position.x, 0.06f, transform.position.z);
         }
-    }
+    }*/
     void FixedUpdate()
     {
         bool forwardKey = Input.GetKey("w");
