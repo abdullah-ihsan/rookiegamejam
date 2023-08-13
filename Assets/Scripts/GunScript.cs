@@ -17,6 +17,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] private float _laserduration;
 
     private EnemyMovement enemy;
+    private Canvas enemyBar;
     private LineRenderer _laserLine;
 
     private Rigidbody rb;
@@ -65,14 +66,15 @@ public class GunScript : MonoBehaviour
             Debug.DrawRay(rb.transform.position, rb.transform.forward*hit.distance ,Color.red);
             
             Debug.Log(hit.transform.name + " shot");
+
+            enemyBar = hit.transform.gameObject.GetComponentInChildren<Canvas>();
+            enemyBar.enabled = true;
             _laserLine.startColor = Color.red;
             _laserLine.endColor = Color.red;
             _laserLine.startWidth = 0.5f;
             _laserLine.endWidth = 0.5f;
 
             enemy.takeDamage(damage);
-            
-            
             _animator.SetTrigger("isShot");
            
         }
@@ -82,6 +84,8 @@ public class GunScript : MonoBehaviour
             _laserLine.endWidth = 0.2f;
             _laserLine.startColor = Color.blue;
             _laserLine.endColor = Color.blue;
+            if(enemyBar.enabled)
+                enemyBar.enabled = false;
         }
     }
 

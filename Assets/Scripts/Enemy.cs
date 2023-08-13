@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float movementSpeed;
 
     [SerializeField] private float _maxhealth = 10;
-    private float _currenthealth;
+    private float _currenthealth ;
 
     [SerializeField] private FloatingHealthBar _healthBar;
 
@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         isPushingHash = Animator.StringToHash("isPushing");
         _agent = GetComponent<NavMeshAgent>();
-        _currenthealth = _maxhealth;
+        
         _healthBar = GetComponentInChildren<FloatingHealthBar>();
     }
     // Start is called before the first frame update
@@ -43,27 +43,18 @@ public class EnemyMovement : MonoBehaviour
     {
         _agent.speed = movementSpeed;
         _currenthealth = _maxhealth;
-        _enemyhealth.UpdateHealthbar(_maxhealth, _currenthealth);
+        //_enemyhealth.UpdateHealthbar(_maxhealth, _currenthealth);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        /*if (_target)
-        {
-            Vector3 direction = (_target.position - transform.position).normalized;
-           _rb.transform.LookAt(_target);
-            _moveDirection = direction;
-        }*/
-    }
 
     void FixedUpdate()
     {
         if (isActive)
         {
             _agent.SetDestination(_target.position);
+           
         }
+       
     }
 
     void OnCollisionEnter(Collision collision)
@@ -78,16 +69,25 @@ public class EnemyMovement : MonoBehaviour
             _agent.isStopped = true;
         }
 
-        // if (collision.gameObject.tag == "Laser")
-        // {
-        //     Debug.Log("-2.5");
-        //     
-        // }
     }
 
     public void takeDamage(float damageAmount)
     {
         _currenthealth -= damageAmount;
+        if (_currenthealth <= 0)
+        {
+            StartCoroutine(Die());
+        }
         _healthBar.UpdateHealthBar(_currenthealth, _maxhealth);
+        
+    }
+
+    IEnumerator Die()
+    {
+        _animator.SetTrigger("Death");
+        _agent.isStopped = true;
+        yield return new WaitForSeconds(5f);
+        GameObject.Destroy(this.gameObject);
+        
     }
 }
