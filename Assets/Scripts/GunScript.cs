@@ -7,7 +7,7 @@ public class GunScript : MonoBehaviour
 {
     //[SerializeField] private EnemyMovement _enemy;
     public bool bulletHit = false;
-    [SerializeField] private float damage = 10f;
+    [SerializeField] private float damage = 0.1f;
     [SerializeField] private float range = 100f;
 
     [SerializeField] private Button _button;
@@ -16,6 +16,7 @@ public class GunScript : MonoBehaviour
 
     [SerializeField] private float _laserduration;
 
+    private EnemyMovement enemy;
     private LineRenderer _laserLine;
 
     private Rigidbody rb;
@@ -32,7 +33,7 @@ public class GunScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
-        StartCoroutine(StartShooting());
+        //StartCoroutine(StartShooting());
     }
 
     void FixedUpdate()
@@ -44,6 +45,7 @@ public class GunScript : MonoBehaviour
         //     timer -= delay;
         // }
         SetLaser();
+        Shoot();
     }
 
     IEnumerator StartShooting()
@@ -57,24 +59,30 @@ public class GunScript : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
-        //Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range);
-        //Debug.Log(hit.transform.name + "testing");
         if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && hit.collider.gameObject.CompareTag("Enemy"))
         {
-           
+            enemy = hit.transform.gameObject.GetComponent<EnemyMovement>();
             Debug.DrawRay(rb.transform.position, rb.transform.forward*hit.distance ,Color.red);
             
             Debug.Log(hit.transform.name + " shot");
+            _laserLine.startColor = Color.red;
+            _laserLine.endColor = Color.red;
+            _laserLine.startWidth = 0.5f;
+            _laserLine.endWidth = 0.5f;
+
+            enemy.takeDamage(damage);
             
-            //lower the health of enemy
-            /*if (hit.transform.name == "Potato")
-                _enemy.gotShot();*/
-
-
+            
             _animator.SetTrigger("isShot");
            
         }
-        StartCoroutine(ShootLaser());
+        else
+        {
+            _laserLine.startWidth = 0.2f;
+            _laserLine.endWidth = 0.2f;
+            _laserLine.startColor = Color.blue;
+            _laserLine.endColor = Color.blue;
+        }
     }
 
     void SetLaser()

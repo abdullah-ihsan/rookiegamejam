@@ -11,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float _maxhealth = 10;
     private float _currenthealth;
 
+    [SerializeField] private FloatingHealthBar _healthBar;
+
     private Rigidbody _rb;
 
     [SerializeField]private Transform _target;
@@ -33,6 +35,8 @@ public class EnemyMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         isPushingHash = Animator.StringToHash("isPushing");
         _agent = GetComponent<NavMeshAgent>();
+        _currenthealth = _maxhealth;
+        _healthBar = GetComponentInChildren<FloatingHealthBar>();
     }
     // Start is called before the first frame update
     void Start()
@@ -81,9 +85,9 @@ public class EnemyMovement : MonoBehaviour
         // }
     }
 
-    public void gotShot()
+    public void takeDamage(float damageAmount)
     {
-        _currenthealth -= 2.5f;
-        _enemyhealth.UpdateHealthbar(_maxhealth, _currenthealth);
+        _currenthealth -= damageAmount;
+        _healthBar.UpdateHealthBar(_currenthealth, _maxhealth);
     }
 }

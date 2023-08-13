@@ -531,7 +531,7 @@ NavMeshAgent:
   m_Radius: 3.82
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 2
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -598,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 97925ae3c0d28e84aa566c02397fa20e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -95.71
+      value: -93.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 97925ae3c0d28e84aa566c02397fa20e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -750,7 +750,7 @@ Transform:
   m_GameObject: {fileID: 301049286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 0, z: -106.2}
+  m_LocalPosition: {x: -3.5, y: 0, z: -113.6}
   m_LocalScale: {x: 80.93787, y: 21.780325, z: 9.221136}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1153,7 +1153,7 @@ NavMeshAgent:
   m_Radius: 3.59
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -3774,7 +3774,7 @@ NavMeshAgent:
   m_Radius: 1.7
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 0
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -6264,9 +6264,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0420177, y: 0.040884577, z: 0.015018928}
+  m_Size: {x: 0.04, y: 0.040884577, z: 0.02}
   m_Center: {x: 0.00019840323, y: 0.00034666358, z: 0.007485182}
 --- !u!4 &2017897712 stripped
 Transform:
