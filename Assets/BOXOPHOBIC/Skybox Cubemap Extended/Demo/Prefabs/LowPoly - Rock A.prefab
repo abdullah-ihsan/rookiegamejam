@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33092966369005018}
   - component: {fileID: 23445742227598232}
   - component: {fileID: 6358271007140408725}
+  - component: {fileID: 2496350224237268098}
   m_Layer: 0
   m_Name: LowPoly - Rock A
   m_TagString: Untagged
@@ -105,3 +106,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0574602, y: 0.97157097, z: 0.50731593}
   m_Center: {x: 0, y: 0, z: 0.17922409}
+--- !u!208 &2496350224237268098
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927372005322154}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.52900004, y: 0.48600003, z: 0.254}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.179}
+  m_TimeToStationary: 0.5

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -31,6 +32,9 @@ public class EnemyMovement : MonoBehaviour
 
     public delegate void EnemyKilled();
     public static event EnemyKilled OnEnemyKilled;
+
+    public delegate void EnemyGotToBowl();
+    public static event EnemyGotToBowl OnEnemyGotToBowl;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -46,6 +50,7 @@ public class EnemyMovement : MonoBehaviour
         _agent.speed = movementSpeed;
         _currenthealth = _maxhealth;
         //_enemyhealth.UpdateHealthbar(_maxhealth, _currenthealth);
+        
     }
 
 
@@ -69,6 +74,20 @@ public class EnemyMovement : MonoBehaviour
             _rb.velocity = new Vector3(0,0,0);
             _agent.SetDestination(transform.position);
             _agent.isStopped = true;
+            this.gameObject.tag = "EnemyAtBowl";
+            GameObject[] enemiesatbowl = GameObject.FindGameObjectsWithTag("EnemyAtBowl");
+            this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            this.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
+            if(enemiesatbowl.Length >= 3)
+            {
+                Debug.Log("Game Over!");
+                PlayerMovement.score = 0;
+                SceneManager.LoadScene("GameOver");
+            }
+            if(OnEnemyGotToBowl != null)
+            {
+                OnEnemyGotToBowl();
+            }
         }
 
     }
@@ -78,18 +97,28 @@ public class EnemyMovement : MonoBehaviour
         _currenthealth -= damageAmount;
         if (_currenthealth <= 0)
         {
-            StartCoroutine(Die());
+            InitiateDeath();
         }
         _healthBar.UpdateHealthBar(_currenthealth, _maxhealth);
         
     }
-
+    private void InitiateDeath()
+    {
+        PlayerMovement.score++;
+        this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        StartCoroutine(Die());
+        this.gameObject.tag = "Untagged";
+        
+    }
     IEnumerator Die()
     {
         _animator.SetTrigger("Death");
         _agent.isStopped = true;
         yield return new WaitForSeconds(3f);
-        GameObject.Destroy(this.gameObject);
+        if (gameObject != null)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
         if (OnEnemyKilled != null)
         {
             OnEnemyKilled();

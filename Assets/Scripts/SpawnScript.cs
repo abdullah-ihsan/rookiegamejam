@@ -7,31 +7,33 @@ public class SpawnScript : MonoBehaviour
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] GameObject[] spawnPoints;
     private int no_enemies;
-    private GameObject[] enemies;
+    //private GameObject[] enemies;
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         spawnPoints = GameObject.FindGameObjectsWithTag("Spawn Point");
+        Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, new Quaternion(1,180,1,1));
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnEnable()
     {
         EnemyMovement.OnEnemyKilled += SpawnEnemy;
+        EnemyMovement.OnEnemyGotToBowl += SpawnEnemy;
     }
     // Update is called once per frame
     void SpawnEnemy()
     {
-        Debug.Log(PlayerMovement.score + " Score/5: " + ((float)PlayerMovement.score / 5f));
         no_enemies = Mathf.CeilToInt(PlayerMovement.score/5f);
-        enemies  = GameObject.FindGameObjectsWithTag("Enemy");
-
-        Debug.Log("No of enemies: " + (enemies.Length-1));
-        Debug.Log("No of enemies to spawn:" + no_enemies);
-        if (enemies.Length-1 == 0)
+        Debug.Log(GameObject.FindGameObjectWithTag("Enemy") == null);
+        Debug.Log("Score: " + PlayerMovement.score);
+        Debug.Log(no_enemies);
+       
+        if (GameObject.FindGameObjectWithTag("Enemy") == null)
         {
             for (int i = 0; i < no_enemies; i++)
             {
-                Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
+                Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, new Quaternion(1, 180, 1, 1));
             }
         }
     }

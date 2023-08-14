@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33764989204799150}
   - component: {fileID: 23903698892329218}
   - component: {fileID: 9212166352099948672}
+  - component: {fileID: 831758811827402204}
   m_Layer: 0
   m_Name: LowPoly - Fence A
   m_TagString: Untagged
@@ -105,3 +106,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.959415, y: 0.5636784, z: 1.6312308}
   m_Center: {x: 0, y: -0.03170853, z: 0.85072815}
+--- !u!208 &831758811827402204
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051545866392792}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.48, y: 0.282, z: 0.81600004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.032, z: 0.851}
+  m_TimeToStationary: 0.5

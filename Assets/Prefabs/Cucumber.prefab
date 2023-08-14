@@ -1406,6 +1406,7 @@ GameObject:
   - component: {fileID: 4274362723959045010}
   - component: {fileID: 3284850167147912665}
   - component: {fileID: 1723150234173645066}
+  - component: {fileID: 2199513451517932223}
   m_Layer: 0
   m_Name: Cucumber
   m_TagString: Enemy
@@ -1549,6 +1550,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5876036, y: 5.445709, z: 1.7113914}
   m_Center: {x: 0.053096294, y: 2.222855, z: -0.0021762848}
+--- !u!208 &2199513451517932223
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471984240669392733}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1.82, y: 1, z: 1.82}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5832567882112217735
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rb;
     [SerializeField] private float movementSpeed = 5f;
 
-    [SerializeField] private FixedJoystick _joystick;
+    [SerializeField] private FloatingJoystick _joystick;
 
     private Animator _animator;
     private int isWalkingHash;
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
     void IncrementScore()
     {
-        score++;
+        //score++;
         scoreText.text = "Score: " + score.ToString(); 
     }
 }
