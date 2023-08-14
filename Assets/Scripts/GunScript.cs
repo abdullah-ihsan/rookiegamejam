@@ -65,7 +65,7 @@ public class GunScript : MonoBehaviour
             enemy = hit.transform.gameObject.GetComponent<EnemyMovement>();
             Debug.DrawRay(rb.transform.position, rb.transform.forward*hit.distance ,Color.red);
             
-            Debug.Log(hit.transform.name + " shot");
+            //Debug.Log(hit.transform.name + " shot");
 
             enemyBar = hit.transform.gameObject.GetComponentInChildren<Canvas>();
             enemyBar.enabled = true;
@@ -84,7 +84,7 @@ public class GunScript : MonoBehaviour
             _laserLine.endWidth = 0.2f;
             _laserLine.startColor = Color.blue;
             _laserLine.endColor = Color.blue;
-            if(enemyBar.enabled)
+            if(enemyBar != null && enemyBar.enabled)
                 enemyBar.enabled = false;
         }
     }

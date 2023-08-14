@@ -89,10 +89,10 @@ public class EnemyMovement : MonoBehaviour
         _animator.SetTrigger("Death");
         _agent.isStopped = true;
         yield return new WaitForSeconds(3f);
+        GameObject.Destroy(this.gameObject);
         if (OnEnemyKilled != null)
         {
             OnEnemyKilled();
         }
-        GameObject.Destroy(this.gameObject);
     }
 }
