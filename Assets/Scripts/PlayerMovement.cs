@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody),typeof(BoxCollider))]
 public class PlayerMovement : MonoBehaviour
@@ -13,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _animator;
     private int isWalkingHash;
+
+    public int score;
+    [SerializeField] private TMP_Text scoreText;
     
     
     // Start is called before the first frame update
@@ -33,6 +37,12 @@ public class PlayerMovement : MonoBehaviour
             transform.localPosition = new Vector3(transform.position.x, 0.06f, transform.position.z);
         }
     }*/
+
+    private void OnEnable()
+    {
+        EnemyMovement.OnEnemyKilled += IncrementScore;
+    }
+
     void FixedUpdate()
     {
         bool forwardKey = Input.GetKey("w");
@@ -54,4 +64,12 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool(isWalkingHash, false);
         }
     }
+
+    void IncrementScore()
+    {
+        score++;
+        scoreText.text = "Score: " + score.ToString(); 
+    }
 }
+
+

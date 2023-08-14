@@ -29,13 +29,15 @@ public class EnemyMovement : MonoBehaviour
     private int isPushingHash;
     [SerializeField] private EnemyHealth _enemyhealth;
 
+    public delegate void EnemyKilled();
+    public static event EnemyKilled OnEnemyKilled;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         isPushingHash = Animator.StringToHash("isPushing");
         _agent = GetComponent<NavMeshAgent>();
-        
+        _target = GameObject.FindGameObjectWithTag("Bowl").transform;
         _healthBar = GetComponentInChildren<FloatingHealthBar>();
     }
     // Start is called before the first frame update
@@ -86,8 +88,11 @@ public class EnemyMovement : MonoBehaviour
     {
         _animator.SetTrigger("Death");
         _agent.isStopped = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+        if (OnEnemyKilled != null)
+        {
+            OnEnemyKilled();
+        }
         GameObject.Destroy(this.gameObject);
-        
     }
 }
