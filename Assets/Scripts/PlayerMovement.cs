@@ -1,4 +1,4 @@
-using System;
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +17,13 @@ public class PlayerMovement : MonoBehaviour
 
     public static int score;
     [SerializeField] private TMP_Text scoreText;
+
+    [SerializeField] private GameObject[] piecesPrefab;
+
+    public void setMovementSpeed(float speed)
+    {
+        movementSpeed = speed;
+    }
     
     
     // Start is called before the first frame update
@@ -41,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         EnemyMovement.OnEnemyKilled += IncrementScore;
+        EnemyMovement.OnEnemyKilled += StartMakingPieces;
     }
 
     void FixedUpdate()
@@ -69,6 +77,20 @@ public class PlayerMovement : MonoBehaviour
     {
         //score++;
         scoreText.text = "Score: " + score.ToString(); 
+    }
+
+    void StartMakingPieces()
+    {
+        StartCoroutine(makePieces());
+    }
+
+    IEnumerator makePieces()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(piecesPrefab[Random.Range(0, piecesPrefab.Length)], transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
 

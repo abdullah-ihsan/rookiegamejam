@@ -12,9 +12,13 @@ public class GunScript : MonoBehaviour
 
     [SerializeField] private Button _button;
 
+    [SerializeField] private PlayerMovement _player;
     [SerializeField] private Transform _laserpoint;
 
     [SerializeField] private float _laserduration;
+
+    [SerializeField] private float shootMovementSpeed = 5f;
+    [SerializeField] private float normalMovementSpeed = 20f;
 
     private EnemyMovement enemy;
     private Canvas enemyBar;
@@ -29,6 +33,7 @@ public class GunScript : MonoBehaviour
     private void Awake(){
         _button.onClick.AddListener(Shoot);
         _laserLine = GetComponent<LineRenderer>();
+        _player = _laserLine.GetComponentInParent<PlayerMovement>();
     }
     void Start()
     {
@@ -74,12 +79,15 @@ public class GunScript : MonoBehaviour
             _laserLine.startWidth = 0.5f;
             _laserLine.endWidth = 0.5f;
 
+            _player.setMovementSpeed(shootMovementSpeed);
+
             enemy.takeDamage(damage);
             _animator.SetTrigger("isShot");
            
         }
         else
         {
+            _player.setMovementSpeed(normalMovementSpeed);
             _laserLine.startWidth = 0.2f;
             _laserLine.endWidth = 0.2f;
             _laserLine.startColor = Color.blue;

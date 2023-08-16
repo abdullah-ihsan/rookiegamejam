@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private GunScript _fire;
     [SerializeField] private float movementSpeed;
 
     [SerializeField] private float _maxhealth = 10;
@@ -30,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
     private bool isActive = true;
     
     private Vector3 _moveDirection;
+    private Renderer _rd;
 
     private Animator _animator;
     private int isPushingHash;
@@ -40,6 +40,9 @@ public class EnemyMovement : MonoBehaviour
 
     public delegate void EnemyGotToBowl();
     public static event EnemyGotToBowl OnEnemyGotToBowl;
+
+
+
 
     private bool isDead = false;
     private void Awake()
@@ -58,7 +61,7 @@ public class EnemyMovement : MonoBehaviour
         _agent.speed = movementSpeed;
         _currenthealth = _maxhealth;
         //_enemyhealth.UpdateHealthbar(_maxhealth, _currenthealth);
-        
+        GameObject.DontDestroyOnLoad(_target.gameObject);
     }
 
 
@@ -82,7 +85,8 @@ public class EnemyMovement : MonoBehaviour
             //_scale.x -= suckScale;
             //_scale.y -= suckScale;
             //_scale.z -= suckScale;
-            transform.localScale = _scale;
+            if(_scale.x > 0 || _scale.y > 0 || _scale.z > 0) 
+                transform.localScale = _scale;
         }
     }
 
@@ -101,6 +105,7 @@ public class EnemyMovement : MonoBehaviour
             GameObject[] enemiesatbowl = GameObject.FindGameObjectsWithTag("EnemyAtBowl");
             this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
             this.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
+            this.gameObject.GetComponent<Target>().enabled = false;
             if(enemiesatbowl.Length >= 3)
             {
                 Debug.Log("Game Over!");
@@ -120,7 +125,12 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && isDead)
         {
             GameObject.Destroy(this.gameObject);
+            if (OnEnemyKilled != null)
+            {
+                OnEnemyKilled();
+            }
         }
+      
     }
 
     public void takeDamage(float damageAmount)
@@ -137,17 +147,20 @@ public class EnemyMovement : MonoBehaviour
     {
         PlayerMovement.score++;
         isDead = true;
+        isActive = false;
         BoxCollider collider = gameObject.GetComponent<BoxCollider>();
         collider.isTrigger = true;
         collider.providesContacts = false;
+        _agent.enabled = false;
+        gameObject.GetComponent<Target>().enabled = false;
         //StartCoroutine(Die());
         this.gameObject.tag = "Untagged";
         _animator.SetTrigger("Death");
         _agent.isStopped = true;
-        if (OnEnemyKilled != null)
-        {
-            OnEnemyKilled();
-        }
+        //if (OnEnemyKilled != null)
+        //{
+        //    OnEnemyKilled();
+        //}
 
     }
     IEnumerator Die()
@@ -164,4 +177,6 @@ public class EnemyMovement : MonoBehaviour
             OnEnemyKilled();
         }
     }
+
+    
 }

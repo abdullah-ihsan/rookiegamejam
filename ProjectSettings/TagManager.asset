@@ -9,6 +9,8 @@ TagManager:
   - Spawn Point
   - EnemyAtBowl
   - Laserpoint
+  - Flowpoint
+  - InsideBowl
   layers:
   - Default
   - TransparentFX
