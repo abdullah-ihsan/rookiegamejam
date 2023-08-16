@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]private Transform _target;
     [SerializeField] private Transform _laserpoint;
 
-    [SerializeField] private float suckSpeed = 20f;
+    [SerializeField] private float suckSpeed = 30f;
     [SerializeField] private float suckScale = 0.1f;
     private Vector3 _scale;
     
