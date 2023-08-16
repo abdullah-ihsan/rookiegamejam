@@ -4321,6 +4321,9 @@ MonoBehaviour:
   _maxhealth: 10
   _healthBar: {fileID: 0}
   _target: {fileID: 0}
+  _laserpoint: {fileID: 0}
+  suckSpeed: 20
+  suckScale: 0.001
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -4347,8 +4350,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.2143035, y: 9.393575, z: 3.420475}
-  m_Center: {x: 0.10381913, y: 4.7022805, z: 1.2102375}
+  m_Size: {x: 8.705408, y: 9.393575, z: 8.239948}
+  m_Center: {x: -0.020757675, y: 4.7022805, z: 0.19925499}
 --- !u!54 &6410125010655540532
 Rigidbody:
   m_ObjectHideFlags: 0

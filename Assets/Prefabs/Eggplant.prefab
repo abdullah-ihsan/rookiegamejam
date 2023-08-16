@@ -2926,7 +2926,7 @@ GameObject:
   - component: {fileID: 397284448110459709}
   - component: {fileID: 8517119900831891016}
   - component: {fileID: 6019340414945696162}
-  - component: {fileID: 5080712710771072843}
+  - component: {fileID: 4217830366729358846}
   m_Layer: 0
   m_Name: Eggplant
   m_TagString: Enemy
@@ -3011,7 +3011,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6044867869517640381}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 3.82
+  m_Radius: 2.58
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 2
@@ -3043,8 +3043,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.4358659, y: 9.356924, z: 3.078682}
-  m_Center: {x: 0.12746072, y: 4.178462, z: -0.10551453}
+  m_Size: {x: 6.914619, y: 9.356924, z: 6.9503517}
+  m_Center: {x: 0.098281145, y: 4.178462, z: 0.10666466}
 --- !u!114 &8517119900831891016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3062,6 +3062,9 @@ MonoBehaviour:
   _maxhealth: 10
   _healthBar: {fileID: 0}
   _target: {fileID: 0}
+  _laserpoint: {fileID: 0}
+  suckSpeed: 20
+  suckScale: 0.001
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3096,7 +3099,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!208 &5080712710771072843
+--- !u!208 &4217830366729358846
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3105,8 +3108,8 @@ NavMeshObstacle:
   m_GameObject: {fileID: 6044867869517640381}
   m_Enabled: 0
   serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 3.78, y: 1, z: 3.78}
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1

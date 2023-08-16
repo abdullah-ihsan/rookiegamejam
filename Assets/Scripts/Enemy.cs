@@ -17,6 +17,11 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody _rb;
 
     [SerializeField]private Transform _target;
+    [SerializeField] private Transform _laserpoint;
+
+    [SerializeField] private float suckSpeed = 20f;
+    [SerializeField] private float suckScale = 0.1f;
+    private Vector3 _scale;
     
     private NavMeshAgent _agent;
 
@@ -35,6 +40,8 @@ public class EnemyMovement : MonoBehaviour
 
     public delegate void EnemyGotToBowl();
     public static event EnemyGotToBowl OnEnemyGotToBowl;
+
+    private bool isDead = false;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -43,6 +50,7 @@ public class EnemyMovement : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _target = GameObject.FindGameObjectWithTag("Bowl").transform;
         _healthBar = GetComponentInChildren<FloatingHealthBar>();
+        _laserpoint = GameObject.FindGameObjectWithTag("Laserpoint").transform;
     }
     // Start is called before the first frame update
     void Start()
@@ -63,6 +71,21 @@ public class EnemyMovement : MonoBehaviour
         }
        
     }
+
+    private void Update()
+    {
+        if (isDead)
+        {
+            _scale = transform.localScale;
+            gameObject.transform.position = Vector3.MoveTowards(transform.position, _laserpoint.position, suckSpeed *Time.deltaTime);
+            _scale -= new Vector3(suckScale, suckScale, suckScale);
+            //_scale.x -= suckScale;
+            //_scale.y -= suckScale;
+            //_scale.z -= suckScale;
+            transform.localScale = _scale;
+        }
+    }
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -90,6 +113,14 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
+      
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") && isDead)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
     }
 
     public void takeDamage(float damageAmount)
@@ -105,10 +136,19 @@ public class EnemyMovement : MonoBehaviour
     private void InitiateDeath()
     {
         PlayerMovement.score++;
-        this.gameObject.GetComponent<BoxCollider>().enabled = false;
-        StartCoroutine(Die());
+        isDead = true;
+        BoxCollider collider = gameObject.GetComponent<BoxCollider>();
+        collider.isTrigger = true;
+        collider.providesContacts = false;
+        //StartCoroutine(Die());
         this.gameObject.tag = "Untagged";
-        
+        _animator.SetTrigger("Death");
+        _agent.isStopped = true;
+        if (OnEnemyKilled != null)
+        {
+            OnEnemyKilled();
+        }
+
     }
     IEnumerator Die()
     {

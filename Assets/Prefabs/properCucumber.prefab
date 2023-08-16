@@ -4488,6 +4488,9 @@ MonoBehaviour:
   _maxhealth: 10
   _healthBar: {fileID: 0}
   _target: {fileID: 0}
+  _laserpoint: {fileID: 0}
+  suckSpeed: 20
+  suckScale: 0.001
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

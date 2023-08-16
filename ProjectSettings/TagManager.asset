@@ -8,6 +8,7 @@ TagManager:
   - Bowl
   - Spawn Point
   - EnemyAtBowl
+  - Laserpoint
   layers:
   - Default
   - TransparentFX
