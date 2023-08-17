@@ -11,6 +11,9 @@ TagManager:
   - Laserpoint
   - Flowpoint
   - InsideBowl
+  - Gun
+  - Cow
+  - EnemyAtCow
   layers:
   - Default
   - TransparentFX

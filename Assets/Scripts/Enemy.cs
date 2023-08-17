@@ -42,8 +42,6 @@ public class EnemyMovement : MonoBehaviour
     public static event EnemyGotToBowl OnEnemyGotToBowl;
 
 
-
-
     private bool isDead = false;
     private void Awake()
     {
@@ -73,6 +71,26 @@ public class EnemyMovement : MonoBehaviour
            
         }
        
+    }
+
+    public bool getIsDead()
+    {
+        return isDead;
+    }
+
+    public void setIsDead(bool set)
+    {
+        isDead = set;
+    }
+
+    public void setIsActive(bool set)
+    {
+        isActive = set;
+    }
+
+    public bool getIsActive()
+    {
+        return isActive;
     }
 
     private void Update()
@@ -117,8 +135,6 @@ public class EnemyMovement : MonoBehaviour
                 OnEnemyGotToBowl();
             }
         }
-
-      
     }
     private void OnTriggerEnter(Collider other)
     {

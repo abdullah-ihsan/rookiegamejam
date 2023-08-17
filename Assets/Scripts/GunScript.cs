@@ -31,7 +31,7 @@ public class GunScript : MonoBehaviour
 
     // Update is called once per frame
     private void Awake(){
-        _button.onClick.AddListener(Shoot);
+//        _button.onClick.AddListener(Shoot);
         _laserLine = GetComponent<LineRenderer>();
         _player = _laserLine.GetComponentInParent<PlayerMovement>();
     }
