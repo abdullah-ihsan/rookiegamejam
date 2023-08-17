@@ -167,12 +167,13 @@ public class EnemyMovement : MonoBehaviour
         BoxCollider collider = gameObject.GetComponent<BoxCollider>();
         collider.isTrigger = true;
         collider.providesContacts = false;
+        _agent.isStopped = true;
         _agent.enabled = false;
         gameObject.GetComponent<Target>().enabled = false;
         //StartCoroutine(Die());
         this.gameObject.tag = "Untagged";
         _animator.SetTrigger("Death");
-        _agent.isStopped = true;
+        
         //if (OnEnemyKilled != null)
         //{
         //    OnEnemyKilled();

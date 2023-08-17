@@ -20,11 +20,13 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private GameObject[] piecesPrefab;
 
+    
+
     public void setMovementSpeed(float speed)
     {
         movementSpeed = speed;
     }
-    
+
     
     // Start is called before the first frame update
     void Start()
@@ -89,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
+            Debug.Log("Got here");
             Instantiate(piecesPrefab[Random.Range(0, piecesPrefab.Length)], transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.1f);
         }

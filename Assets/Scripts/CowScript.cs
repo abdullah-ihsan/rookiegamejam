@@ -6,7 +6,7 @@ using static EnemyMovement;
 
 public class CowScript : MonoBehaviour
 {
-    private GameObject EnemyInContact;
+    [SerializeField] private float lastDuration = 10f;
 
     private Animator _animator;
 
@@ -16,6 +16,7 @@ public class CowScript : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        Destroy(this.gameObject, lastDuration);
     }
 
     // Update is called once per frame
@@ -47,6 +48,7 @@ public class CowScript : MonoBehaviour
         EnemyInContact.GetComponent<BoxCollider>().enabled = false;
         EnemyInContact.GetComponent<Target>().enabled = false;
         transform.LookAt(EnemyInContact.transform);
+        PlayerMovement.score++;
         if (OnEnemyEaten != null)
         {
             OnEnemyEaten();

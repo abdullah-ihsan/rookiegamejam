@@ -3033,7 +3033,7 @@ NavMeshAgent:
   m_Radius: 2.58
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 2
+  avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -3076,7 +3076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58b80a7725b8482593fabec9ed3706e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fire: {fileID: 0}
   movementSpeed: 5
   _maxhealth: 10
   _healthBar: {fileID: 0}

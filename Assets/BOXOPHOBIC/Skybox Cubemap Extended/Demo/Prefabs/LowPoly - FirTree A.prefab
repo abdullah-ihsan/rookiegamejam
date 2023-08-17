@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33326053453097746}
   - component: {fileID: 23347498147556770}
   - component: {fileID: -3869042533273195981}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowPoly - FirTree A
   m_TagString: Untagged
   m_Icon: {fileID: 0}

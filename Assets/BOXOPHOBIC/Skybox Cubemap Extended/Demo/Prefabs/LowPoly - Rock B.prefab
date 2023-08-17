@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33887624806533098}
   - component: {fileID: 23855685082151098}
   - component: {fileID: 6813238772581733639}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowPoly - Rock B
   m_TagString: Untagged
   m_Icon: {fileID: 0}

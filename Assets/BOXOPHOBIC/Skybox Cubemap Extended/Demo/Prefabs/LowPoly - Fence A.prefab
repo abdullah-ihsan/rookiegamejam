@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23903698892329218}
   - component: {fileID: 9212166352099948672}
   - component: {fileID: 831758811827402204}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LowPoly - Fence A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
