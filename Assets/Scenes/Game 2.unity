@@ -6272,13 +6272,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.50503707, y: -0, z: -0, w: 0.8630977}
+  m_LocalRotation: {x: 0.42885995, y: -0, z: -0, w: 0.90337104}
   m_LocalPosition: {x: -27.8, y: 49.02, z: -93.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 60.668, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50.79, y: 0, z: 0}
 --- !u!65 &963194230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12898,7 +12898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2501673927083872468, guid: 220bea2a7f88ef241a1e76658493ae41, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13124,7 +13124,7 @@ Transform:
   m_GameObject: {fileID: 2027454641}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.17217588, y: -0.9948135, z: -0.9948349}
+  m_LocalPosition: {x: 0.17217588, y: -0.99, z: -2.33}
   m_LocalScale: {x: 0.4387989, y: 0.4387989, z: 0.20465146}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13834,7 +13834,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 13.01
+    angle: 14.83
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -13920,7 +13920,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.2
+      value: 4
       mode: 0
       spread: 0
       speed:
@@ -14039,7 +14039,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
