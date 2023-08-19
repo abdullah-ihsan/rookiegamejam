@@ -120,7 +120,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cucumber Kicking
+  m_Name: Chilli Attacking
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -133,7 +133,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 53cb2531e66444d94887fe2166bcac4c, type: 2}
+  m_Motion: {fileID: 7400000, guid: c4ed14f8263f24cfb84d0be64eb4a2da, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -146,7 +146,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cucumber Walking
+  m_Name: Chilli Running
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -161,7 +161,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1090b23df9d9b4ceaba28995afcec9e7, type: 2}
+  m_Motion: {fileID: 7400000, guid: c9e658fdfdeef478c9345ff9ec5ad00f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
