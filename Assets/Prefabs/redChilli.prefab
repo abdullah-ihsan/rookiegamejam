@@ -1590,7 +1590,7 @@ RectTransform:
   m_Father: {fileID: 8888838991700644357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.13800049, y: 0}
   m_SizeDelta: {x: 9.724, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1923,7 +1923,7 @@ MonoBehaviour:
   _target: {fileID: 2342862217310700563}
   _laserpoint: {fileID: 0}
   suckSpeed: 30
-  suckScale: 0.1
+  suckScale: 0.002
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2589,7 +2589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4008158117542068815
 RectTransform:
   m_ObjectHideFlags: 0

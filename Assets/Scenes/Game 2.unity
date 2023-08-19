@@ -22204,7 +22204,7 @@ GameObject:
   - component: {fileID: 1796230971}
   - component: {fileID: 1796230970}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: PiecesSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23732,7 +23732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2501673927083872468, guid: 220bea2a7f88ef241a1e76658493ae41, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30546,6 +30546,10 @@ PrefabInstance:
     - target: {fileID: 7795428897629819697, guid: aa3fb0334a81e4cf496581806638c197, type: 3}
       propertyPath: m_Name
       value: Deer_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795428897629819697, guid: aa3fb0334a81e4cf496581806638c197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7795428897630048017, guid: aa3fb0334a81e4cf496581806638c197, type: 3}
       propertyPath: m_LocalPosition.x
