@@ -59,7 +59,7 @@ public class EnemyMovement : MonoBehaviour
         _agent.speed = movementSpeed;
         _currenthealth = _maxhealth;
         //_enemyhealth.UpdateHealthbar(_maxhealth, _currenthealth);
-        GameObject.DontDestroyOnLoad(_target.gameObject);
+        //GameObject.DontDestroyOnLoad(_target.gameObject);
     }
 
 

@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public static int score;
     [SerializeField] private TMP_Text scoreText;
 
-    [SerializeField] private GameObject[] piecesPrefab;
+ 
 
     
 
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         EnemyMovement.OnEnemyKilled += IncrementScore;
         CowScript.OnEnemyEaten += IncrementScore;
-        EnemyMovement.OnEnemyKilled += StartMakingPieces;
+        
         DeerScript.OnEnemyEaten += IncrementScore;
     }
 
@@ -83,20 +83,7 @@ public class PlayerMovement : MonoBehaviour
         scoreText.text = "Score: " + score.ToString(); 
     }
 
-    void StartMakingPieces()
-    {
-        StartCoroutine(makePieces());
-    }
-
-    IEnumerator makePieces()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            Debug.Log("Got here");
-            Instantiate(piecesPrefab[Random.Range(0, piecesPrefab.Length)], transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
+    
 }
 
 

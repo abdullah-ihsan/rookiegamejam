@@ -7,12 +7,17 @@ public class PiecesScript : MonoBehaviour
     [SerializeField] private Transform _flowpoint;
     [SerializeField] private Transform _insideBowl;
     [SerializeField] private float flowSpeed = 20f;
+
     private bool atBowl = false;
+
+    
 
     private void Awake()
     {
+
         _flowpoint = GameObject.FindGameObjectWithTag("Flowpoint").transform;
         _insideBowl = GameObject.FindGameObjectWithTag("InsideBowl").transform;
+       
     }
 
     // Update is called once per frame
@@ -37,4 +42,5 @@ public class PiecesScript : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 }
