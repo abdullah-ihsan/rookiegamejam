@@ -126,9 +126,7 @@ public class EnemyMovement : MonoBehaviour
             this.gameObject.GetComponent<Target>().enabled = false;
             if(enemiesatbowl.Length >= 3)
             {
-                Debug.Log("Game Over!");
-                PlayerMovement.score = 0;
-                SceneManager.LoadScene("GameOver");
+                StartCoroutine(GameOver());
             }
             if(OnEnemyGotToBowl != null)
             {
@@ -141,10 +139,7 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && isDead)
         {
             GameObject.Destroy(this.gameObject);
-            if (OnEnemyKilled != null)
-            {
-                OnEnemyKilled();
-            }
+            
         }
       
     }
@@ -173,7 +168,11 @@ public class EnemyMovement : MonoBehaviour
         //StartCoroutine(Die());
         this.gameObject.tag = "Untagged";
         _animator.SetTrigger("Death");
-        
+        if (OnEnemyKilled != null)
+        {
+            OnEnemyKilled();
+        }
+
         //if (OnEnemyKilled != null)
         //{
         //    OnEnemyKilled();
@@ -193,6 +192,16 @@ public class EnemyMovement : MonoBehaviour
         {
             OnEnemyKilled();
         }
+    }
+
+
+    IEnumerator GameOver()
+    {
+        Debug.Log("Game Over!");
+        _target.gameObject.GetComponent<Animator>().enabled = true;
+        yield return new WaitForSeconds(3f);
+        //PlayerMovement.score = 0;
+        SceneManager.LoadScene("GameOver");
     }
 
     

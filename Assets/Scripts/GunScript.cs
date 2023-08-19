@@ -65,6 +65,7 @@ public class GunScript : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
+        
         if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("UnderAttack")))
         {
             enemy = hit.transform.gameObject.GetComponent<EnemyMovement>();
@@ -82,7 +83,7 @@ public class GunScript : MonoBehaviour
             _player.setMovementSpeed(shootMovementSpeed);
 
             enemy.takeDamage(damage);
-            _animator.SetTrigger("isShot");
+            //_animator.SetTrigger("isShot");
            
         }
         else
@@ -101,9 +102,18 @@ public class GunScript : MonoBehaviour
     {
         RaycastHit hit;
         Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range);
-        _laserLine.SetPosition(0, _laserpoint.position);
-        _laserLine.SetPosition(1,hit.point);
-        _laserLine.enabled = true;
+        if (hit.transform == null)
+        {
+            Vector3 position = _laserpoint.transform.position + _laserpoint.forward * range;
+            _laserLine.SetPosition(0, _laserpoint.position);
+            _laserLine.SetPosition(1, position);
+        }
+        else
+        {
+            _laserLine.SetPosition(0, _laserpoint.position);
+            _laserLine.SetPosition(1, hit.point);
+            _laserLine.enabled = true;
+        }
         //StartCoroutine(ShootLaser());
     }
 

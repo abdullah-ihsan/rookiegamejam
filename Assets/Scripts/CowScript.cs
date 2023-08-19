@@ -6,7 +6,7 @@ using static EnemyMovement;
 
 public class CowScript : MonoBehaviour
 {
-    [SerializeField] private float lastDuration = 10f;
+    [SerializeField] static private float lastDuration = 10f;
 
     private Animator _animator;
 
@@ -16,7 +16,7 @@ public class CowScript : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        Destroy(this.gameObject, lastDuration);
+        //Destroy(this.gameObject, lastDuration);
     }
 
     // Update is called once per frame

@@ -25,7 +25,7 @@ public class DeerScript : MonoBehaviour
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         _agent = GetComponent<NavMeshAgent>();
-        Destroy(this.gameObject, lastDuration);
+        //Destroy(this.gameObject, lastDuration);
     }
 
     // Update is called once per frame
