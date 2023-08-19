@@ -48,7 +48,7 @@ public class SpawnScript : MonoBehaviour
         //Debug.Log("Multiplier: " + _multiplier);
         //Debug.Log("Bool: " + GameObject.FindGameObjectWithTag("Enemy") == null);
        
-        if (GameObject.FindGameObjectWithTag("Enemy") == null)
+        if (GameObject.FindGameObjectWithTag("Enemy") == null)// && GameObject.FindGameObjectWithTag("UnderAttack") == null)
         {
             for (int i = 0; i < no_enemies; i++)
             {

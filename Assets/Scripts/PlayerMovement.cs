@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         EnemyMovement.OnEnemyKilled += IncrementScore;
         CowScript.OnEnemyEaten += IncrementScore;
         EnemyMovement.OnEnemyKilled += StartMakingPieces;
+        DeerScript.OnEnemyEaten += IncrementScore;
     }
 
     void FixedUpdate()

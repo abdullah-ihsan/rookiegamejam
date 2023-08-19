@@ -7,13 +7,17 @@ using UnityEngine.UI;
 public class AnimalChooser : MonoBehaviour
 {
     [SerializeField] private Button _cowButton;
+    [SerializeField] private Button _deerButton;
     [SerializeField] private float offset;
     [SerializeField] GameObject _cowPrefab;
+    [SerializeField] GameObject _deerPrefab;
+
     private Vector3 spawnpoint;
     private Transform player;
     private void Awake()
     {
         _cowButton.onClick.AddListener(AddCow);
+        _deerButton.onClick.AddListener(AddDeer);
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
     }
@@ -30,6 +34,16 @@ public class AnimalChooser : MonoBehaviour
         {
             spawnpoint = player.position + player.forward * offset;
             Instantiate(_cowPrefab, spawnpoint, Quaternion.identity);
+        }
+    }
+
+    void AddDeer()
+    {
+        //Debug.Log("Cow Found: " + GameObject.FindGameObjectWithTag("Cow"));
+        if (GameObject.FindGameObjectWithTag("Deer") == null)
+        {
+            spawnpoint = player.position + player.forward * offset;
+            Instantiate(_deerPrefab, spawnpoint, Quaternion.identity);
         }
     }
 }

@@ -31,7 +31,7 @@ public class DeerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (closest == null || closest.tag != "Enemy")
+        if (closest == null || closest.tag != "Enemy" && closest.tag != "UnderAttack")
         {
             closest = GetClosestEnemy();
         }
@@ -44,7 +44,7 @@ public class DeerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("UnderAttack"))
         {
             EatEnemy(collision.gameObject);
         }
@@ -78,6 +78,7 @@ public class DeerScript : MonoBehaviour
     {
         //Debug.Log(closest);
         //gameObject.transform.position = Vector3.MoveTowards(transform.position, closest.transform.position, deerSpeed * Time.deltaTime);
+        closest.tag = "UnderAttack";
         _agent.SetDestination(closest.transform.position); 
     }
 

@@ -65,7 +65,7 @@ public class GunScript : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
-        if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && hit.collider.gameObject.CompareTag("Enemy"))
+        if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("UnderAttack")))
         {
             enemy = hit.transform.gameObject.GetComponent<EnemyMovement>();
             Debug.DrawRay(rb.transform.position, rb.transform.forward*hit.distance ,Color.red);
