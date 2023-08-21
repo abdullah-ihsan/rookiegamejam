@@ -23545,7 +23545,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
@@ -29699,7 +29699,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!154 &914605551
 TerrainCollider:
@@ -29717,7 +29717,7 @@ TerrainCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: b5c3f3fc21be94315b0121317c425355, type: 2}
   m_EnableTreeColliders: 1
@@ -30793,13 +30793,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.32170188, y: -0, z: -0, w: 0.94684106}
-  m_LocalPosition: {x: 8.299995, y: 51.3, z: -100.3}
+  m_LocalRotation: {x: 0.22159453, y: -0, z: -0, w: 0.9751389}
+  m_LocalPosition: {x: 8.299995, y: 31.2, z: -88.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 37.532, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 25.605, y: 0, z: 0}
 --- !u!65 &963194230
 BoxCollider:
   m_ObjectHideFlags: 0
