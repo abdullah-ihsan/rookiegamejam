@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -23,6 +22,8 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private float suckSpeed = 30f;
     [SerializeField] private float suckScale = 0.3f;
+
+
     private Vector3 _scale;
     
     private NavMeshAgent _agent;
@@ -170,7 +171,7 @@ public class EnemyMovement : MonoBehaviour
         isDead = true;
         piecesSpawner.StartMakingPieces(this.transform.position);
         isActive = false;
-        gameObject.GetComponentInChildren<Renderer>().enabled = false;
+
         BoxCollider collider = gameObject.GetComponent<BoxCollider>();
         collider.isTrigger = true;
         collider.providesContacts = false;

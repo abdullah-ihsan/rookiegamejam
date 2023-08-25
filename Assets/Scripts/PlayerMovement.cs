@@ -67,12 +67,14 @@ public class PlayerMovement : MonoBehaviour
 
         float horizontalInput = _joystick.Horizontal;
         float verticalInput = _joystick.Vertical;
-
-        _rb.velocity = new Vector3( horizontalInput* movementSpeed, _rb.velocity.y,  verticalInput* movementSpeed);
-        //Debug.Log("Movement Speed:" + movementSpeed);
+        //if (movementSpeed != 0)
+        
+        _rb.velocity = new Vector3(horizontalInput * movementSpeed, _rb.velocity.y, verticalInput * movementSpeed);
+        
+        Debug.Log("Movement Speed:" + movementSpeed);
 
         
-        if (horizontalInput != 0 || verticalInput != 0 && !isWalking)
+        if (horizontalInput != 0 || verticalInput != 0 && !isWalking && movementSpeed != 0)
         {
             _animator.SetBool(isWalkingHash, true);
             transform.rotation = Quaternion.LookRotation(_rb.velocity);

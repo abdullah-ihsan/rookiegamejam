@@ -16,6 +16,8 @@ public class GunScript : MonoBehaviour
     [SerializeField] private Transform _laserpoint;
     [SerializeField] private GameObject shurikenPrefab;
 
+    [SerializeField] private bool isLaser = false;
+
     [SerializeField] private float _laserduration;
 
     [SerializeField] private float shootMovementSpeed = 5f;
@@ -36,8 +38,8 @@ public class GunScript : MonoBehaviour
     private void Awake(){
 //        _button.onClick.AddListener(Shoot);
         _laserLine = GetComponent<LineRenderer>();
-        gunParticles = GetComponentInChildren<ParticleSystem>();
-        gunParticles.Stop();
+  //      gunParticles = GetComponentInChildren<ParticleSystem>();
+//        gunParticles.Stop();
         _player = _laserLine.GetComponentInParent<PlayerMovement>();
     }
     void Start()
@@ -57,7 +59,11 @@ public class GunScript : MonoBehaviour
         //     Shoot();
         //     timer -= delay;
         // }
-        SetLaser();
+        if (isLaser)
+        {
+            SetLaser();
+        }
+        
         Shoot();
     }
 
@@ -75,7 +81,7 @@ public class GunScript : MonoBehaviour
         
         if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("UnderAttack")))
         {
-            gunParticles.Play();
+            //gunParticles.Play();
             enemy = hit.transform.gameObject.GetComponent<EnemyMovement>();
             //Debug.DrawRay(rb.transform.position, rb.transform.forward*hit.distance ,Color.red);
             
@@ -95,19 +101,21 @@ public class GunScript : MonoBehaviour
                 GameObject shuriken;
                 shuriken = Instantiate(shurikenPrefab, _laserpoint.position, Quaternion.identity);
                 shuriken.GetComponent<ShurikenScript>().enemy = hit.transform;
+              
                 timer -= delay;
             }
 
             _player.setMovementSpeed(shootMovementSpeed);
-            
+            _animator.SetBool("isShooting", true);
             //enemy.takeDamage(damage);
             //StartCoroutine(ThrowShurikens(hit.transform));
-            //_animator.SetTrigger("isShot");
-           
+
+
         }
         else
         {
-            gunParticles.Stop();
+            //            gunParticles.Stop();
+            _animator.SetBool("isShooting", false) ;
             _player.setMovementSpeed(normalMovementSpeed);
             _laserLine.startWidth = 0.1f;
             _laserLine.endWidth = 0.1f;

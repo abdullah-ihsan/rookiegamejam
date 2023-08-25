@@ -13,7 +13,11 @@ public class DashScript : MonoBehaviour
 
     Color color;
 
+    private bool isDashing = false;
+
     private bool onCoolDown = false;
+
+    private Vector3 dashPosition;
     // Start is called before the first frame update
 
     private void Awake()
@@ -39,6 +43,14 @@ public class DashScript : MonoBehaviour
             color.a = 0.8f;
             _dashButton.image.color = color;
         }
+        if (isDashing)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, dashPosition, 5f);
+        }
+        if(transform.position == dashPosition)
+        {
+            isDashing = false;
+        }
     }
 
     void dash()
@@ -46,7 +58,8 @@ public class DashScript : MonoBehaviour
         if (!onCoolDown)
         {
             _animator.SetTrigger("Dash");
-            transform.position = transform.position + transform.forward * dashDistance;
+            dashPosition  = transform.position + transform.forward * dashDistance;
+            isDashing = true;
             StartCoroutine(coolDown());
         }
     }
