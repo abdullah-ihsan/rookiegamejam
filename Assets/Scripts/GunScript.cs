@@ -18,7 +18,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] private float _laserduration;
 
     [SerializeField] private float shootMovementSpeed = 5f;
-    [SerializeField] private float normalMovementSpeed = 20f;
+    private float normalMovementSpeed;
 
     private EnemyMovement enemy;
     private Canvas enemyBar;
@@ -42,6 +42,7 @@ public class GunScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        normalMovementSpeed = _player.GetMovementSpeed();
         
         //StartCoroutine(StartShooting());
     }

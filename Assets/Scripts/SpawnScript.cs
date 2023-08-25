@@ -33,21 +33,21 @@ public class SpawnScript : MonoBehaviour
     // Update is called once per frame
     void SpawnEnemy()
     {
-        //Debug.Log("Spawn Called");
+        Debug.Log("Spawn Called");
         if (PlayerMovement.score % 20 == 0 && PlayerMovement.score != 0) { _multiplier += 5; temp = 1; }
-        //no_enemies = Mathf.CeilToInt(PlayerMovement.score/_multiplier);
-        if((Mathf.CeilToInt(PlayerMovement.score / _multiplier)) > temp)
+        no_enemies = Mathf.CeilToInt(PlayerMovement.score / _multiplier);
+        if ((Mathf.CeilToInt(PlayerMovement.score / _multiplier)) > temp)
         {
             temp++;
             no_enemies++;
         }
         if (PlayerMovement.score == 0) no_enemies = 1;
-        //Debug.Log(GameObject.FindGameObjectWithTag("Enemy") == null);
-        //Debug.Log("Score: " + PlayerMovement.score);
-        //Debug.Log("No of enemies: " + no_enemies);
-        //Debug.Log("Temp: " + temp);
-        //Debug.Log("Multiplier: " + _multiplier);
-        //Debug.Log("Bool: " + GameObject.FindGameObjectWithTag("Enemy") == null);
+        Debug.Log(GameObject.FindGameObjectWithTag("Enemy") == null);
+        Debug.Log("Score: " + PlayerMovement.score);
+        Debug.Log("No of enemies: " + no_enemies);
+        Debug.Log("Temp: " + temp);
+        Debug.Log("Multiplier: " + _multiplier);
+        Debug.Log("Bool: " + GameObject.FindGameObjectWithTag("Enemy") == null);
 
         if (GameObject.FindGameObjectWithTag("Enemy") == null)// && GameObject.FindGameObjectWithTag("UnderAttack") == null)
         {

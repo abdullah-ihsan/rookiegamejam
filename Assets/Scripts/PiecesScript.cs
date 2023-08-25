@@ -6,7 +6,7 @@ public class PiecesScript : MonoBehaviour
 {
     [SerializeField] private Transform _flowpoint;
     [SerializeField] private Transform _insideBowl;
-    [SerializeField] private float flowSpeed = 20f;
+    private float flowSpeed = 40f;
 
     private bool atBowl = false;
 

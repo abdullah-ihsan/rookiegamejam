@@ -4249,8 +4249,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 5.506629, y: 0.049999237, z: -48.550648}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2833022010708866084}
   - {fileID: 5890670170111403138}
@@ -4324,7 +4324,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _laserpoint: {fileID: 0}
   suckSpeed: 30
-  suckScale: 0.002
+  suckScale: 0.005
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

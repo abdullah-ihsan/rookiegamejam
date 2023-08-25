@@ -8,7 +8,7 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody _rb;
-    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private float movementSpeed = 50f;
 
     [SerializeField] private FloatingJoystick _joystick;
 
@@ -25,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
     public void setMovementSpeed(float speed)
     {
         movementSpeed = speed;
+    }
+
+    public float GetMovementSpeed()
+    {
+        return movementSpeed;
     }
 
     
@@ -62,7 +67,9 @@ public class PlayerMovement : MonoBehaviour
 
         float horizontalInput = _joystick.Horizontal;
         float verticalInput = _joystick.Vertical;
+
         _rb.velocity = new Vector3( horizontalInput* movementSpeed, _rb.velocity.y,  verticalInput* movementSpeed);
+        //Debug.Log("Movement Speed:" + movementSpeed);
 
         
         if (horizontalInput != 0 || verticalInput != 0 && !isWalking)

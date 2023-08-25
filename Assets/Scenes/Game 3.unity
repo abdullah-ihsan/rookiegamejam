@@ -4983,7 +4983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1244760467543844, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4852562989172732, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_LocalScale.x
@@ -7184,7 +7184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1244760467543844, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4852562989172732, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_LocalScale.x
@@ -12087,7 +12087,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1593950697155818, guid: d2cd02263a1e8084abf81f1324b929be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1748322141}
   m_SourcePrefab: {fileID: 100100000, guid: d2cd02263a1e8084abf81f1324b929be, type: 3}
 --- !u!4 &465097740 stripped
 Transform:
@@ -12867,6 +12870,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 96c358c1148c08c49890cdea0be4045e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1581083068}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 96c358c1148c08c49890cdea0be4045e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1581083069}
   m_SourcePrefab: {fileID: 100100000, guid: 96c358c1148c08c49890cdea0be4045e, type: 3}
 --- !u!1001 &492144612
 PrefabInstance:
@@ -37162,6 +37168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer_wander
       objectReference: {fileID: 0}
+    - target: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.8549
@@ -43727,6 +43737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer_wander (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.8549
@@ -45159,6 +45173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer_wander (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.8549
@@ -45181,7 +45199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 92.2
+      value: 147
       objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48076,6 +48094,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 11.591997, y: 8.389932, z: 24.993954}
   m_Center: {x: -1.2801824, y: 3.694955, z: -1.6909051}
+--- !u!208 &1581083069
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467611821}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!4 &1582821214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6045991324838645790, guid: 16bb8b73406954df5b5bbe8cf536429f, type: 3}
@@ -48473,6 +48507,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6045991324838645790, guid: 16bb8b73406954df5b5bbe8cf536429f, type: 3}
   m_PrefabInstance: {fileID: 1689382495}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1610988964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1493958779012120596, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
+  m_PrefabInstance: {fileID: 1678948472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &1610988969
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610988964}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.407, y: 0.105000004, z: 0.075}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: 0.045, z: -0.001}
+  m_TimeToStationary: 0.5
 --- !u!4 &1611530249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012485175174, guid: 1cee73a22ae3bff49a094a5883eabd3c, type: 3}
@@ -50192,7 +50247,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1493958779012120596, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1610988969}
   m_SourcePrefab: {fileID: 100100000, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
 --- !u!4 &1679746408 stripped
 Transform:
@@ -51716,6 +51774,27 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16bb8b73406954df5b5bbe8cf536429f, type: 3}
+--- !u!1 &1748322137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1593950697155818, guid: d2cd02263a1e8084abf81f1324b929be, type: 3}
+  m_PrefabInstance: {fileID: 464187502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &1748322141
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748322137}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.8290001, y: 1.5860001, z: 3.3960001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.0050000004, y: 0, z: 3.2580001}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1749108372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52678,6 +52757,27 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97c7589824dbbb24cbc2b95a9345ebb1, type: 3}
+--- !u!1 &1785505512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4680757731160225450, guid: 0fde05fa0f3321942a21896ff4f0856f, type: 3}
+  m_PrefabInstance: {fileID: 1939364889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &1785505517
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785505512}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15400001, y: 0.075, z: 0.155}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.007, y: 0.012, z: 0.002}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1787739152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53910,7 +54010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1244760467543844, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4852562989172732, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_LocalScale.x
@@ -56680,7 +56780,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4680757731160225450, guid: 0fde05fa0f3321942a21896ff4f0856f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1785505517}
   m_SourcePrefab: {fileID: 100100000, guid: 0fde05fa0f3321942a21896ff4f0856f, type: 3}
 --- !u!1 &1944318605 stripped
 GameObject:
@@ -67989,6 +68092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer_wander (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.8549
@@ -69198,7 +69305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923f7a6e8195a3742b28be26e28153f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
+  movementSpeed: 35
   _joystick: {fileID: 1163116810}
   scoreText: {fileID: 200747664}
 --- !u!4 &3153972367654285673
@@ -70258,7 +70365,6 @@ MonoBehaviour:
   _laserpoint: {fileID: 3153972367654285673}
   _laserduration: 0
   shootMovementSpeed: 5
-  normalMovementSpeed: 20
   delay: 3
 --- !u!1 &5683443059271015910
 GameObject:
@@ -71334,7 +71440,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116

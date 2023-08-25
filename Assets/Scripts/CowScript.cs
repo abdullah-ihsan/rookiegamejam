@@ -19,6 +19,7 @@ public class CowScript : MonoBehaviour
         //Destroy(this.gameObject, lastDuration);
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -29,7 +30,7 @@ public class CowScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("UnderAttack")) 
         {
             EatEnemy(other.gameObject);
 
@@ -40,8 +41,8 @@ public class CowScript : MonoBehaviour
     {
         //EnemyInContact = collision.gameObject;
         //EnemyInContact = collision.gameObject;
-        EnemyInContact.tag = "EnemyAtBowl";
-        EnemyInContact = GameObject.FindGameObjectWithTag("EnemyAtBowl");
+        EnemyInContact.tag = "UnderAttack";
+       // EnemyInContact = GameObject.FindGameObjectWithTag("EnemyAtBowl");
         _animator.SetTrigger("isEating");
         EnemyInContact.GetComponent<EnemyMovement>().setIsActive(false);
         EnemyInContact.GetComponent<NavMeshAgent>().enabled = false;
@@ -49,13 +50,14 @@ public class CowScript : MonoBehaviour
         EnemyInContact.GetComponent<Target>().enabled = false;
         transform.LookAt(EnemyInContact.transform);
         PlayerMovement.score++;
+        Destroy(EnemyInContact.gameObject);
         if (OnEnemyEaten != null)
         {
             OnEnemyEaten();
         }
         //EnemyInContact.tag = "Untagged";
      
-        Destroy(EnemyInContact.gameObject);
+        
 
     }
 

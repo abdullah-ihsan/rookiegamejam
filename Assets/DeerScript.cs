@@ -55,8 +55,8 @@ public class DeerScript : MonoBehaviour
     {
         //EnemyInContact = collision.gameObject;
         //EnemyInContact = collision.gameObject;
-        EnemyInContact.tag = "EnemyAtBowl";
-        EnemyInContact = GameObject.FindGameObjectWithTag("EnemyAtBowl");
+        //EnemyInContact.tag = "EnemyAtBowl";
+        //EnemyInContact = GameObject.FindGameObjectWithTag("EnemyAtBowl");
         //_animator.SetTrigger("isEating");
         EnemyInContact.GetComponent<EnemyMovement>().setIsActive(false);
         EnemyInContact.GetComponent<NavMeshAgent>().enabled = false;
