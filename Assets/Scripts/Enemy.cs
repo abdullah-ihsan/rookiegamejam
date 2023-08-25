@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField]private Transform _target;
     [SerializeField] private Transform _laserpoint;
+
+    [SerializeField] private PieceSpawner piecesSpawner;
 
     [SerializeField] private float suckSpeed = 30f;
     [SerializeField] private float suckScale = 0.3f;
@@ -52,6 +55,7 @@ public class EnemyMovement : MonoBehaviour
         _target = GameObject.FindGameObjectWithTag("Bowl").transform;
         _healthBar = GetComponentInChildren<FloatingHealthBar>();
         _laserpoint = GameObject.FindGameObjectWithTag("Laserpoint").transform;
+        piecesSpawner = GameObject.FindGameObjectWithTag("PieceSpawner").GetComponent<PieceSpawner>();
     }
     // Start is called before the first frame update
     void Start()
@@ -97,14 +101,14 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isDead)
         {
-            _scale = transform.localScale;
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, _laserpoint.position, suckSpeed *Time.deltaTime);
-            _scale -= new Vector3(suckScale, suckScale, suckScale);
-            //_scale.x -= suckScale;
-            //_scale.y -= suckScale;
-            //_scale.z -= suckScale;
-            if(_scale.x > 0 || _scale.y > 0 || _scale.z > 0) 
-                transform.localScale = _scale;
+            //_scale = transform.localScale;
+            //gameObject.transform.position = Vector3.MoveTowards(transform.position, _laserpoint.position, suckSpeed *Time.deltaTime);
+            //_scale -= new Vector3(suckScale, suckScale, suckScale);
+            ////_scale.x -= suckScale;
+            ////_scale.y -= suckScale;
+            ////_scale.z -= suckScale;
+            //if(_scale.x > 0 || _scale.y > 0 || _scale.z > 0) 
+            //    transform.localScale = _scale;
         }
     }
 
@@ -141,37 +145,49 @@ public class EnemyMovement : MonoBehaviour
             GameObject.Destroy(this.gameObject);
             
         }
+
+        if (other.gameObject.CompareTag("Shuriken"))
+        {
+            takeDamage(5f);
+        }
       
     }
 
     public void takeDamage(float damageAmount)
     {
         _currenthealth -= damageAmount;
-        if (_currenthealth <= 0)
+        if (_currenthealth <= 0 && !isDead)
         {
             InitiateDeath();
         }
         _healthBar.UpdateHealthBar(_currenthealth, _maxhealth);
         
     }
+
     private void InitiateDeath()
     {
         PlayerMovement.score++;
         isDead = true;
+        piecesSpawner.StartMakingPieces(this.transform.position);
         isActive = false;
+        gameObject.GetComponentInChildren<Renderer>().enabled = false;
         BoxCollider collider = gameObject.GetComponent<BoxCollider>();
         collider.isTrigger = true;
         collider.providesContacts = false;
         _agent.isStopped = true;
         _agent.enabled = false;
+        
         gameObject.GetComponent<Target>().enabled = false;
         //StartCoroutine(Die());
         this.gameObject.tag = "Untagged";
         _animator.SetTrigger("Death");
+        Destroy(this.gameObject);
         if (OnEnemyKilled != null)
         {
             OnEnemyKilled();
         }
+       // StartCoroutine(Die());
+
 
         //if (OnEnemyKilled != null)
         //{
@@ -181,17 +197,18 @@ public class EnemyMovement : MonoBehaviour
     }
     IEnumerator Die()
     {
-        _animator.SetTrigger("Death");
-        _agent.isStopped = true;
+        //_animator.SetTrigger("Death");
+        //_agent.isStopped = true;
+        //gameObject.SetActive(false);
         yield return new WaitForSeconds(3f);
         if (gameObject != null)
         {
             GameObject.Destroy(this.gameObject);
         }
-        if (OnEnemyKilled != null)
-        {
-            OnEnemyKilled();
-        }
+        //if (OnEnemyKilled != null)
+        //{
+        //    OnEnemyKilled();
+        //}
     }
 
 
@@ -204,5 +221,4 @@ public class EnemyMovement : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    
 }

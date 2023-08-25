@@ -16,6 +16,7 @@ TagManager:
   - EnemyAtCow
   - UnderAttack
   - Deer
+  - Shuriken
   layers:
   - Default
   - TransparentFX

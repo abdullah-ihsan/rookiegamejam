@@ -14,10 +14,12 @@ public class GunScript : MonoBehaviour
 
     [SerializeField] private PlayerMovement _player;
     [SerializeField] private Transform _laserpoint;
+    [SerializeField] private GameObject shurikenPrefab;
 
     [SerializeField] private float _laserduration;
 
     [SerializeField] private float shootMovementSpeed = 5f;
+
     private float normalMovementSpeed;
 
     private EnemyMovement enemy;
@@ -27,7 +29,7 @@ public class GunScript : MonoBehaviour
 
     private Rigidbody rb;
     private Animator _animator;
-    [SerializeField]private float delay = 3;
+    [SerializeField]private float delay = 0.001f;
     float timer;
 
     // Update is called once per frame
@@ -86,9 +88,20 @@ public class GunScript : MonoBehaviour
             //_laserLine.startWidth = 0.5f;
             //_laserLine.endWidth = 0.5f;
 
+
+            timer += Time.deltaTime;
+            if (timer > delay)
+            {
+                GameObject shuriken;
+                shuriken = Instantiate(shurikenPrefab, _laserpoint.position, Quaternion.identity);
+                shuriken.GetComponent<ShurikenScript>().enemy = hit.transform;
+                timer -= delay;
+            }
+
             _player.setMovementSpeed(shootMovementSpeed);
             
-            enemy.takeDamage(damage);
+            //enemy.takeDamage(damage);
+            //StartCoroutine(ThrowShurikens(hit.transform));
             //_animator.SetTrigger("isShot");
            
         }
@@ -130,4 +143,13 @@ public class GunScript : MonoBehaviour
         yield  return new WaitForSeconds(_laserduration);
         _laserLine.enabled = false;
     }
+
+    //IEnumerator ThrowShurikens(Transform enemy)
+    //{
+    //    GameObject shuriken;
+    //    shuriken = Instantiate(shurikenPrefab, _laserpoint.position, Quaternion.identity);
+    //    shuriken.transform.position = Vector3.MoveTowards(shuriken.transform.position, enemy.transform.position, shurikenSpeed*Time.deltaTime);
+    //    yield return new WaitForSeconds(0.2f);
+    //}
+
 }

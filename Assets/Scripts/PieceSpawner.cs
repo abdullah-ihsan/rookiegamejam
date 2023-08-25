@@ -6,16 +6,16 @@ using UnityEngine;
 public class PieceSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] piecesPrefab;
-    [SerializeField] private Transform _player;
+    private Vector3 point;
 
     private void OnEnable()
     {
-        EnemyMovement.OnEnemyKilled += StartMakingPieces;
+        //EnemyMovement.OnEnemyKilled += StartMakingPieces(;
     }
 
     private void Awake()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
+        point = GameObject.FindGameObjectWithTag("Player").transform.position;
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -31,8 +31,9 @@ public class PieceSpawner : MonoBehaviour
         
     }
 
-    void StartMakingPieces()
+    public void StartMakingPieces(Vector3 point)
     {
+        this.point = point;
         StartCoroutine(makePieces());
     }
 
@@ -40,7 +41,7 @@ public class PieceSpawner : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            Instantiate(piecesPrefab[Random.Range(0, piecesPrefab.Length)], _player.transform.position, Quaternion.identity);
+            Instantiate(piecesPrefab[Random.Range(0, piecesPrefab.Length)], point, Quaternion.identity);
             yield return new WaitForSeconds(0.2f);
         }
     }
