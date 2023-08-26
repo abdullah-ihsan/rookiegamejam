@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         
         _rb.velocity = new Vector3(horizontalInput * movementSpeed, _rb.velocity.y, verticalInput * movementSpeed);
         
-        Debug.Log("Movement Speed:" + movementSpeed);
+        //Debug.Log("Movement Speed:" + movementSpeed);
 
         
         if (horizontalInput != 0 || verticalInput != 0 && !isWalking && movementSpeed != 0)

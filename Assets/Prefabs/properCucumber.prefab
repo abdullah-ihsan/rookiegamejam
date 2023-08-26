@@ -4507,6 +4507,7 @@ MonoBehaviour:
   _healthBar: {fileID: 0}
   _target: {fileID: 0}
   _laserpoint: {fileID: 0}
+  piecesSpawner: {fileID: 0}
   suckSpeed: 30
   suckScale: 0.005
   groundLayer:
@@ -4583,7 +4584,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9043015207049791349}
   serializedVersion: 4
-  m_Mass: 100
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

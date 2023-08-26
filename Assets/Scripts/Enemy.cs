@@ -111,6 +111,12 @@ public class EnemyMovement : MonoBehaviour
             //if(_scale.x > 0 || _scale.y > 0 || _scale.z > 0) 
             //    transform.localScale = _scale;
         }
+
+        /*if (PlayerMovement.score % 10 == 0 && PlayerMovement.score > 1)
+        {
+            Debug.Log("Movement Speed: " + movementSpeed);
+            movementSpeed += 5;
+        }*/
     }
 
 
@@ -160,6 +166,11 @@ public class EnemyMovement : MonoBehaviour
         if (_currenthealth <= 0 && !isDead)
         {
             InitiateDeath();
+            if (PlayerMovement.score % 10 == 0 && PlayerMovement.score > 1)
+            {
+                Debug.Log("Movement Speed: " + movementSpeed);
+                
+            }
         }
         _healthBar.UpdateHealthBar(_currenthealth, _maxhealth);
         
