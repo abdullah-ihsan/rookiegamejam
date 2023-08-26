@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  shurikenSpeed: 50
+  shurikenSpeed: 150
 --- !u!65 &8494084298068037920
 BoxCollider:
   m_ObjectHideFlags: 0

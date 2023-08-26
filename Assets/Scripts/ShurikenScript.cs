@@ -6,7 +6,7 @@ public class ShurikenScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform enemy;
-    [SerializeField] private float shurikenSpeed = 50f;
+    [SerializeField] private float shurikenSpeed = 500f;
     private Vector3 finalposition;
 
     private void Awake()
