@@ -166,11 +166,6 @@ public class EnemyMovement : MonoBehaviour
         if (_currenthealth <= 0 && !isDead)
         {
             InitiateDeath();
-            if (PlayerMovement.score % 10 == 0 && PlayerMovement.score > 1)
-            {
-                Debug.Log("Movement Speed: " + movementSpeed);
-                
-            }
         }
         _healthBar.UpdateHealthBar(_currenthealth, _maxhealth);
         
