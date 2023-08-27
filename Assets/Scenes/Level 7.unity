@@ -4137,7 +4137,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 124388792}
   m_OnClick:
     m_PersistentCalls:
@@ -79809,7 +79809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNum: {fileID: 142216201}
   transition: {fileID: 771616927}
-  scoreToReach: 50
+  scoreToReach: 100
 --- !u!1001 &8410302246347233160
 PrefabInstance:
   m_ObjectHideFlags: 0
