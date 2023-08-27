@@ -284,7 +284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6893939
 Transform:
   m_ObjectHideFlags: 0
@@ -4137,7 +4137,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 124388792}
   m_OnClick:
     m_PersistentCalls:
@@ -5896,7 +5896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1244760467543844, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4852562989172732, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_LocalScale.x
@@ -8122,7 +8122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1244760467543844, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4852562989172732, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_LocalScale.x
@@ -32283,6 +32283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer_wander (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.8549
@@ -51535,7 +51539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_LocalScale.x
@@ -54888,6 +54892,10 @@ PrefabInstance:
     - target: {fileID: 1244760467543844, guid: 8deda24c4237fd94db95aa127822ba3c, type: 3}
       propertyPath: m_Name
       value: Cow_wander
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244760467543844, guid: 8deda24c4237fd94db95aa127822ba3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4852562989172732, guid: 8deda24c4237fd94db95aa127822ba3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59312,7 +59320,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1770272790}
   m_OnClick:
     m_PersistentCalls:
@@ -61549,7 +61557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1244760467543844, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4852562989172732, guid: 9349c75ae3ad84e6e963ce0f9b1dc829, type: 3}
       propertyPath: m_LocalScale.x
