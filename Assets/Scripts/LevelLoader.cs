@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public Animator transition;
-    public static bool transed = false;
+    [SerializeField] private Animator transition;
+    private static bool transed = false;
+
     void Update()
     {
         if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && !transed)
@@ -16,13 +17,14 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    public void LoadLevel()
+    private void LoadLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     IEnumerator LoadLevel(int levelIndex)
     {
+        Debug.Log("We here");
         transition.SetTrigger("Start");
         
         yield return new WaitForSeconds(1f);

@@ -22,6 +22,8 @@ public class GunScript : MonoBehaviour
 
     [SerializeField] private float shootMovementSpeed = 5f;
 
+    [SerializeField] private float sphereCastRadius = 1f;
+
     private float normalMovementSpeed;
 
     private EnemyMovement enemy;
@@ -79,7 +81,7 @@ public class GunScript : MonoBehaviour
     {
         RaycastHit hit;
         
-        if ((Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range)) && (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("UnderAttack")))
+        if ((Physics.SphereCast(_laserpoint.position,sphereCastRadius, rb.transform.forward, out hit, range)) && (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("UnderAttack")))
         {
             //gunParticles.Play();
             enemy = hit.transform.gameObject.GetComponent<EnemyMovement>();
@@ -129,6 +131,7 @@ public class GunScript : MonoBehaviour
     void SetLaser()
     {
         RaycastHit hit;
+        
         Physics.Raycast(_laserpoint.position, rb.transform.forward, out hit, range);
         if (hit.transform == null)
         {

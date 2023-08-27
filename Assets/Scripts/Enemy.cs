@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed;
+    [SerializeField] public float movementSpeed;
 
     [SerializeField] private float _maxhealth = 10;
     private float _currenthealth ;

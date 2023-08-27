@@ -9,6 +9,7 @@ public class SpawnScript : MonoBehaviour
     private float temp;
     private int no_enemies = 1;
     private float _multiplier = 5;
+    private float speedMultiplier = 0;
     //private GameObject[] enemies;
     // Start is called before the first frame update
     void Awake()
@@ -33,28 +34,41 @@ public class SpawnScript : MonoBehaviour
     // Update is called once per frame
     void SpawnEnemy()
     {
-        //Debug.Log("Spawn Called");
+        Debug.Log("Spawn Called");
         if (PlayerMovement.score % 20 == 0 && PlayerMovement.score != 0) { _multiplier += 5; temp = 1; }
-        no_enemies = Mathf.CeilToInt(PlayerMovement.score / _multiplier);
+        //no_enemies = Mathf.CeilToInt(PlayerMovement.score / _multiplier);
         if ((Mathf.CeilToInt(PlayerMovement.score / _multiplier)) > temp)
         {
             temp++;
             no_enemies++;
         }
         if (PlayerMovement.score == 0) no_enemies = 1;
-        //Debug.Log(GameObject.FindGameObjectWithTag("Enemy") == null);
-        //Debug.Log("Score: " + PlayerMovement.score);
-        //Debug.Log("No of enemies: " + no_enemies);
-        //Debug.Log("Temp: " + temp);
-        //Debug.Log("Multiplier: " + _multiplier);
-        //Debug.Log("Bool: " + GameObject.FindGameObjectWithTag("Enemy") == null);
-
+        
         if (GameObject.FindGameObjectWithTag("Enemy") == null)// && GameObject.FindGameObjectWithTag("UnderAttack") == null)
         {
+            Debug.Log(GameObject.FindGameObjectWithTag("Enemy") == null);
+            Debug.Log("Score: " + PlayerMovement.score);
+            Debug.Log("No of enemies: " + no_enemies);
+            Debug.Log("Temp: " + temp);
+            Debug.Log("Multiplier: " + _multiplier);
+            Debug.Log("Bool: " + GameObject.FindGameObjectWithTag("Enemy") == null);
+
+            if (PlayerMovement.score % 100 == 0 && PlayerMovement.score != 0)
+            {
+                speedMultiplier += 5;
+            }
+            Debug.Log("Speed Multiplier" + speedMultiplier);
             for (int i = 0; i < no_enemies; i++)
             {
-                Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, new Quaternion(1, 180, 1, 1));
+                GameObject enemy;
+                enemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, new Quaternion(1, 180, 1, 1));
+
+                {
+                    enemy.GetComponent<EnemyMovement>().movementSpeed += speedMultiplier;
+                }
             }
         }
     }
+
+   
 }

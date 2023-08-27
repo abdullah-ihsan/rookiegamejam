@@ -14,6 +14,6 @@ public class GameOver : MonoBehaviour
 
     private void ReloadGame()
     {
-        SceneManager.LoadScene("Game 3");
+        SceneManager.LoadScene("Level 1");
     }
 }
