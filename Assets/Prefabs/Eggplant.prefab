@@ -3076,11 +3076,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58b80a7725b8482593fabec9ed3706e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathAudioSource: {fileID: -7608951904994416429, guid: 8d1eec92cab416c449a8b0e21a770948, type: 3}
   movementSpeed: 5
   _maxhealth: 10
   _healthBar: {fileID: 0}
   _target: {fileID: 0}
   _laserpoint: {fileID: 0}
+  piecesSpawner: {fileID: 0}
   suckSpeed: 30
   suckScale: 0.005
   groundLayer:
