@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     private int isWalkingHash;
 
+    public static int TotalScore;
     public static int score;
     [SerializeField] private TMP_Text scoreText;
 

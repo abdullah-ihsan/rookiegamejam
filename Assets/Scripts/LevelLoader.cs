@@ -12,7 +12,7 @@ public class LevelLoader : MonoBehaviour
     {
         if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && !transed)
         {
-            transed = true;
+            //transed = true;
             LoadLevel();
         }
     }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class EnemyMovement : MonoBehaviour
 {
+    //[SerializeField] private TMP_Text totalScoreDisplay;
     [SerializeField] public float movementSpeed;
 
     [SerializeField] private float _maxhealth = 10;
@@ -174,6 +176,7 @@ public class EnemyMovement : MonoBehaviour
     private void InitiateDeath()
     {
         PlayerMovement.score++;
+        PlayerMovement.TotalScore++;
         isDead = true;
         piecesSpawner.StartMakingPieces(this.transform.position);
         isActive = false;
@@ -226,6 +229,7 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(3f);
         //PlayerMovement.score = 0;
         SceneManager.LoadScene("GameOver");
+        // totalScoreDisplay.text = "Your Score: " + PlayerMovement.TotalScore.ToString();
     }
 
 }
