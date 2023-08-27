@@ -79807,7 +79807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNum: {fileID: 142216201}
   transition: {fileID: 771616927}
-  scoreToReach: 80
+  scoreToReach: 60
 --- !u!1001 &8410302246347233160
 PrefabInstance:
   m_ObjectHideFlags: 0
