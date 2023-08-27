@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SoupScript : MonoBehaviour
 {
+    [SerializeField] private TMP_Text levelNum;
     [SerializeField] private Animator transition;
     [SerializeField] private int scoreToReach = 50;
    
@@ -32,7 +34,8 @@ public class SoupScript : MonoBehaviour
         }
         if(lastScore == scoreToReach)
         {
-            Debug.Log("Why are we here?");
+            //Debug.Log("Why are we here?");
+            levelNum.text = "Level " + (SceneManager.GetActiveScene().buildIndex + 1).ToString();
             LoadLevel();
         }
     }
@@ -49,5 +52,10 @@ public class SoupScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         SceneManager.LoadScene(levelIndex);
+    }
+
+    public float getMaxScore()
+    {
+        return scoreToReach;
     }
 }

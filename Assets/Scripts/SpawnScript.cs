@@ -10,6 +10,7 @@ public class SpawnScript : MonoBehaviour
     private int no_enemies = 1;
     private float _multiplier = 5;
     private float speedMultiplier = 0;
+
     //private GameObject[] enemies;
     // Start is called before the first frame update
     void Awake()
