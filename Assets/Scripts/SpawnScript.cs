@@ -11,10 +11,23 @@ public class SpawnScript : MonoBehaviour
     private float _multiplier = 5;
     private float speedMultiplier = 0;
 
+    private static GameObject instance;
+
+    void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+
+        if (instance == null)
+            instance = gameObject;
+        else
+            Destroy(gameObject);
+    }
+
     //private GameObject[] enemies;
     // Start is called before the first frame update
     void Awake()
     {
+        Debug.Log("Awake");
         no_enemies = 1;
         PlayerMovement.score = 0;
         spawnPoints = GameObject.FindGameObjectsWithTag("Spawn Point");
@@ -29,8 +42,10 @@ public class SpawnScript : MonoBehaviour
     {
         EnemyMovement.OnEnemyKilled += SpawnEnemy;
         EnemyMovement.OnEnemyGotToBowl += SpawnEnemy;
+        EnemyMovement.OnGameOver += ResetSpawn;
         CowScript.OnEnemyEaten += SpawnEnemy;
         DeerScript.OnEnemyEaten += SpawnEnemy;
+        SoupScript.OnLevelCompleted += ResetSpawn;
     }
     // Update is called once per frame
     void SpawnEnemy()
@@ -71,5 +86,12 @@ public class SpawnScript : MonoBehaviour
         }
     }
 
-   
+    private void ResetSpawn()
+    {
+        no_enemies = 1;
+        PlayerMovement.score = 0;
+        temp = no_enemies;
+        _multiplier = 5;
+    }
+
 }

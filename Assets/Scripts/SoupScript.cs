@@ -13,6 +13,9 @@ public class SoupScript : MonoBehaviour
     private float scaleIncrement;
     private int lastScore = 0;
     private Vector3 _scale;
+
+    public delegate void LevelCompleted();
+    public static event LevelCompleted OnLevelCompleted;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,10 @@ public class SoupScript : MonoBehaviour
         if(lastScore == scoreToReach)
         {
             //Debug.Log("Why are we here?");
+            if(OnLevelCompleted != null)
+            {
+                OnLevelCompleted();
+            }
             levelNum.text = "Level " + (SceneManager.GetActiveScene().buildIndex + 1).ToString();
             LoadLevel();
         }

@@ -47,6 +47,9 @@ public class EnemyMovement : MonoBehaviour
     public delegate void EnemyGotToBowl();
     public static event EnemyGotToBowl OnEnemyGotToBowl;
 
+    public delegate void GameOver();
+    public static event GameOver OnGameOver;
+
 
     private bool isDead = false;
     private void Awake()
@@ -139,7 +142,11 @@ public class EnemyMovement : MonoBehaviour
             this.gameObject.GetComponent<Target>().enabled = false;
             if(enemiesatbowl.Length >= 3)
             {
-                StartCoroutine(GameOver());
+                if (OnGameOver != null)
+                {
+                    OnGameOver();
+                }
+                StartCoroutine(GameOverCoroutine());
             }
             if(OnEnemyGotToBowl != null)
             {
@@ -222,7 +229,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-    IEnumerator GameOver()
+    IEnumerator GameOverCoroutine()
     {
         Debug.Log("Game Over!");
         _target.gameObject.GetComponent<Animator>().enabled = true;
