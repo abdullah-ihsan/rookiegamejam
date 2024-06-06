@@ -9,7 +9,7 @@ The game is about a chef who is also a ninja and is tasked to defend the soup bo
 ```
 git clone https://github.com/abdullah-ihsan/rookiegamejam/
 ```
-2. Transfer the apk file to your mobile device and install it. (Use a USB C cable or upload it on Google Drive)
+2. Extract Veg-Pocalypse.zip (located in the game apk folder) to get the apk file and transfer it to your mobile device and install it. (Use a USB C cable or upload it on Google Drive)
 
 3. It's done! Now you can play!!
 
